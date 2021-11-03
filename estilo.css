@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-style: normal;
+    
+}
+html{
+    font-size: 16px;
+    
+}
+body{
+    width: 100%;
+    
+}
+article{
+    background-color: #fff5be;
+    color: #000000;
+}
+header{
+    background-color: #0077ff;
+    color:rgb(255, 230, 0);}
+#filtro{
+    border-radius: 3px;
+}
+#pedido{
+    background-color:#0077ff;
+    text-align: center;
+    width: 100%;
+}
+.caja5{
+  border-radius: 0px;
+  background-color: #fff5be;
+  -webkit-transition: 5s ease-in;
+  transition: 5s ease-in;
+}
+.caja5:hover{
+  border-radius: 20px;
+}

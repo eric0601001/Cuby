@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script></head>
+<body>
+<header class="text-center">
+  <br><h1>Cafeteria Eric</h1><br>
+</header>
+<article id="art" class="container-fluid">
+    <h5>Seleccione o busque la bebida que mas le guste y disfrutela :)</h5>
+        <div id="bebidas">
+            <br>
+            <div class="row"><div class="container-fluid">
+               
+                    <input type="search" v-model="bPrecio" placeholder="Busqueda por precio" id="filtro" @click="mostrar2=!mostrar2">
+                
+                <br>
+                <ul>
+                <li v-for="a in bPrecios" >
+                <p><h4 class="text-warning ">{{a.bebida}}</h4><br>{{a.ing}} - {{a.tam}} - {{a.precio}}  ({{a.vig}})</p>
+                </li>
+            </ul>
+                <div class="caja5"><center><p v-if="mostrar2"><img src="2.png" style="width: 30%;"></p></center></div>
+                   
+            </div>
+        </div>
+        <hr>
+            <div class="row"><div class="container-fluid">
+               
+                    <input type="search" v-model="bNombre" placeholder="Busqueda por nombre" id="filtro" @click="mostrar=!mostrar">
+              
+         <ul>
+                <li v-for="a in bBebidas">
+                <p><h5 class="text-warning">{{a.bebida}}</h5><br>{{a.ing}} - {{a.tam}} - {{a.precio}}  ({{a.vig}})</p>
+            </li>
+        </ul>
+                <div class="caja5">
+                    <center><p v-if="mostrar"><img src="1.jpg" style="width: 30%;"></p></center>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+           
+
+        </div>
+            <div id="pedido">
+                <h4 id="pedido" class="text-white">Pago de pedidos</h4>
+                <center>
+                <table class="text-white">
+                <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+                </tr>
+                <tr v-for="a in prod">
+                <td><input type="text" v-model="a.nombre" disabled></td>
+                <td><input type="number" v-model="a.cant" min="0" max="10"></td>
+                <td><input type="number" v-model="a.pUnitario" disabled></td>
+                <td>${{subTotal(a)}}</td>
+                </tr>
+                </table>
+                </center>
+            <div id="pedido"><br>
+                <h3 class="text-white">Iva: ${{(totalP*.16).toFixed(2)}}</h3>
+                <h3 class="text-white">Total: ${{(totalP).toFixed(2)}}</h3>
+                <br>
+                <button class="bg-warning text-white">Pagar</button><hr>
+            </div></div>
+</div>
+</article>
+<script src="funcio.js"></script>
+</body>
+</html>
